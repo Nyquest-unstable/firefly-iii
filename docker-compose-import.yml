@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  importer:
+    image: fireflyiii/data-importer:latest
+    container_name: firefly-importer
+    ports:
+      - "81:8080"        # 浏览器访问端口
+    environment:
+      FIREFLY_III_URL: 192.168.1.150:80
+      FIREFLY_III_ACCESS_TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTk5YzY4MDUyNGU2NGEwNjZlMDRkNGU2OWRmNTBlMWU1ZmM3YjZmNTQyY2Y4Y2NlOTQyYjVkZDUzNDZmMjYzNzZjODE3NGIxZDNkODllZjAiLCJpYXQiOjE3NTgzNzA0MTUuNzU1MTc4LCJuYmYiOjE3NTgzNzA0MTUuNzU1MTc5LCJleHAiOjE3ODk5MDY0MTUuNzMyODMzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.rzuxGhyk2brNO7EH7G3Y5O2fslVMmfs8TNolpFtULl_7lI9N0fwHDOpje9ewZKSafqUIttoM82my-My0hxOvIaaQ7bAIT2ePDvoTBBogY2TbhDn3QeLR9JFdwEuTSc9dKtIjFGJcTfcdiFlx5jPSvHe9aBCJpKJhMoGBtGsqjVaWe94FuzOlsIMXOTCf_HlfN0_4NYl_-KfE2ZsJvtliEg7iPMwQ0x5C0FS0UNiRlbWVCZKaikxzhPRK7rr7S5N9DOV2VL_Wc4tv2x49bdNq1sDPUJrdo3mbVfPdkHnFHwl3c4H2O6X-NIq_ztwGFwlTSh-9YWGQJQKrSFMkyspAY_yT18DHCtvscaM1U3W5WCfGdPvSQp10rzhfb1M2AKmzbrcsz7rxZ_KmYUP3gUyopUOgul_3LlaRI9bZ-5U24LHd3pWRUhQWrxPkKLsgtt9-MpRgPLGFlSRzJiI_-vpUkCXVrYsjIsnhG08rhUmNLRbpkEgpedPw80CMmKdn8ksmus8v6MqnKfZOhtgA7xxPDGz6D56P1UMx-dDrwtY8oQ5AwxMAPiAQXqQqt4VREjXUe52AkBJYRDTOaZ2Fz6aKdfQ_39txy7bkQ7A4385xn2oqcx4PJNFtQjvZhgaJmwfaXsIHQLIINhufuGfVuSHEUbPmAdADn1rTJb-eJ4OFfjY
+      IMPORT_DIR_ALLOWLIST: /import
+    volumes:
+      - ./import:/import   # 把CSV扔这里
+    restart: unless-stopped
