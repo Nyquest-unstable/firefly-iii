@@ -1,0 +1,62 @@
+{
+    "version": 3,
+    "source": "ff3-importer-1.8.0",
+    "created_at": "2025-09-21T20:00:00+02:00",
+    "date": "Y/m/d H:i",
+    "default_account": 13,
+    "delimiter": "comma",
+    "headers": true,
+    "rules": true,
+    "skip_form": false,
+    "add_import_tag": true,
+    "roles": [
+        "date_transaction",
+        "category-name",
+        "opposing-name",
+        "_ignore",
+        "description",
+        "_ignore",
+        "amount_negated",
+        "account-name",
+        "_ignore",
+        "internal_reference",
+        "_ignore",
+        "_ignore"
+    ],
+    "do_mapping": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false
+    ],
+    "mapping": {
+        "7": {
+            "微信零钱": 13,
+            "微信零钱通": 13,
+            "余额宝": 13,
+            "工商银行储蓄卡(3445)": 2,
+            "工商银行储蓄卡(3445)&余额宝": 2,
+            "工商银行储蓄卡(3445)&碰一下立减": 2,
+            "招商银行储蓄卡(7699)": 1,
+            "农业银行储蓄卡(4976)": 3,
+            "账户余额": 13,
+            "": 13
+        }
+    },
+    "duplicate_detection_method": "classic",
+    "ignore_duplicate_lines": true,
+    "unique_column_index": 9,
+    "unique_column_type": "internal_reference",
+    "flow": "file",
+    "content_type": "csv",
+    "conversion": true,
+    "ignore_duplicate_transactions": true
+}
