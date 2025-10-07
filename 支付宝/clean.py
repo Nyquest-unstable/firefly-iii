@@ -33,7 +33,7 @@ def clean_alipay(input_csv: str, output_csv: str = None):
         output_csv = f"{base}_clean.csv"
 
     # 读取
-    df = pd.read_csv(input_csv, dtype=str, encoding="utf-8-sig")
+    df = pd.read_csv(input_csv, dtype=str, skiprows=24)
 
     # 过滤
     df = df[~df["交易状态"].isin(DROP_STATUS)]
